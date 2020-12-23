@@ -1,0 +1,22 @@
+int ml=A0;  //motor DC
+int h=255;  // 5 volt
+int l=0;    // 0 Volt
+String motion;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ml,OUTPUT);
+}
+void loop() {
+  Serial.println("Ketik 'w' untuk memutar,'s' untuk berhenti ");
+  while(Serial.available()==0){      }
+
+  motion=Serial.readString();
+  if(motion=="w"){
+    analogWrite(ml,l);
+  }
+  
+  if(motion=="s"){
+    analogWrite(ml,h);
+  }
+}
